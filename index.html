@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <h2>{{title}}</h2>
+    </div>
+</body>
+<script type="text/javascript" src="./Observer.js"></script>
+<script type="text/javascript" src="./Watch.js"></script>
+<script type="text/javascript" src="./Compile.js"></script>
+<script type="text/javascript" src="./index.js"></script>
+
+<script type="text/javascript">
+    const selfvm = new SelfVm({
+        el: '#app',
+        data: {
+            name: 'test-name',
+            title: 'test-title',
+        }
+    })
+
+    setTimeout(() => {
+        selfvm.name = '3000 second to change name'
+        selfvm.title = '3000 second to change title'
+    }, 3000)
+</script>
+
+</html>
