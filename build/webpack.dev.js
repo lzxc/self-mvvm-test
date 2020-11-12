@@ -7,6 +7,7 @@ module.exports = merge(webpackConfig, {
     devtool: 'cheap-module-eval-source-map',
     devServer: {
         hot: true,
+        host: "0.0.0.0",
         port: '3000', // 默认是8080
         quiet: false, // 默认不启用
         inline: true, // 默认开启 inline 模式，如果设置为false,开启 iframe 模式

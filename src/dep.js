@@ -10,24 +10,21 @@ export default class Dep {
     }
 
     notify() {
-        this.deps.forEach(watcher => {
-            watcher.update()
-        })
+        this.deps.forEach(watcher => { watcher.update() })
     }
 }
 
-// Watcher实例
 Dep.target = null
 
-const targetTask = []
+const targetStack = []
 
-export function pushTargetTask(_target) {
+export function pushTarget(_target) {
     if (Dep.target) {
-        targetTask.push(Dep.target)
+        targetStack.push(Dep.target)
     }
     Dep.target = _target
 }
 
-export function popTargetTask() {
-    Dep.target = targetTask.pop()
+export function popTarget() {
+    Dep.target = targetStack.pop()
 }

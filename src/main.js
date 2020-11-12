@@ -11,32 +11,52 @@ window.data = data
 const numPlusOne = computed(() => data.num + 1)
 watch(
     () => data.msg,
-    (oldValue, newValue) => {
+    (newValue, oldValue) => {
         console.log({ oldValue, newValue });
     })
 
 document.getElementById('btn').addEventListener('click', function () {
-    console.log(data.msg, 'data');
-    data && data.msg === '还原信息' ? data.msg = '点击改变了信息' : data.msg = '还原信息'
     data.num++
+    console.log('点击了按钮');
+})
+document.getElementById('msgInput').addEventListener('input', (e) => {
+    data.msg = e.target.value
 })
 
+// 显示状态
 new Watcher(() => {
     document.getElementById('state').innerHTML = `
-        data: { msg: ${data.msg}, num: ${data.num} }
+    <h2>tip：控制台随意改变data</h2>
+    <h2>显示：</h2>
+        data： {
+             msg："${data.msg}", num：${data.num}
+            }
+            <br/>
+            <br/>
     `
+})
+
+// msg
+new Watcher(() => {
     document.getElementById('app').innerHTML = `
-    <h4>
-    <p>data.msg=> ${data.msg}</p>
-    <p>data.num=>${data.num}</p>
-    </h4>
+    <h5>
+        <p>msg => ${data.msg}</p>
+    </h5>
+    <h5>
+        <p>watch监听了 'data.msg'，更改后在控制台可以看到</p>
+    </h5>
     `
+    document.getElementById('msgInput').value = `${data.msg}`
+})
+
+// num
+new Watcher(() => {
     document.getElementById('app2').innerHTML = `
-    <h4>
-     data.num为 ${data.num}, 计算属性numPlusOne: +1 后为${numPlusOne.value}
-    </h4>
-    <h4>
-        watch：data.msg被watch了，控制台随意改变msg监听
-    </h4>
+        <h5>
+            <p>num => ${data.num}</p>
+            <p>
+                计算属性numPlusOne => "()=>{${data.num} + 1}", 映射后为：${numPlusOne.value}
+            </p>
+        </h5>
     `
 })
