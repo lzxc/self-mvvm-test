@@ -1,5 +1,5 @@
 export default class Dep {
-    constructor() {
+    constructor() { 1111
         this.deps = new Set()
     }
 
