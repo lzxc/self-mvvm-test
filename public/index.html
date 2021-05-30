@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./src/compile.js"></script>
+  <script src="./src/mvvm.js"></script>
 </head>
+
 <body>
-    <div id="state"></div>
-    <div id="app"></div>
-    <div id="app2"></div>
-    <button id="btn">点我改变data.num</button>
-    <input id="msgInput" type="text" placeholder="请输入data.msg">
-    <div id="box"></div>
+  <div id="app">
+    <p>{{name}}</p>
+    <p m-text="name"></p>
+    <p>{{age}}</p>
+    <p>{{doubleAge}}</p>
+    <input type="text" m-model="name" />
+    <button @click="changeName">哈哈</button>
+    <div m-html="html"></div>
+  </div>
 </body>
+
 </html>
