@@ -18,9 +18,9 @@
     },
     "homepage": "https://github.com/lzxc/self-mvvm-test#readme",
     "devDependencies": {
-        "html-webpack-plugin": "^4.5.0",
-        "webpack": "^4.44.2",
-        "webpack-cli": "^3.3.12",
+        "html-webpack-plugin": "^5.5.0",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1",
         "webpack-dev-server": "^3.11.0",
         "webpack-merge": "^5.3.0"
     }
